@@ -1,0 +1,24 @@
+<form [formGroup]="eventForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+        <label for="tittle" class="form-label">Tittle</label>
+        <input type="text" id="tittle" formControlName="tittle" class="form-control" />
+        <div *ngIf="eventForm.get('tittle')?.invalid && eventForm.get('tittle')?.touched" class="text-danger">
+            Tittle is required.
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="startDate" class="form-label">Start Date</label>
+        <input type="date" id="startDate" formControlName="startDate" class="form-control" />
+        <div *ngIf="eventForm.get('startDate')?.invalid && eventForm.get('startDate')?.touched" class="text-danger">
+            Start Date is required.
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="endDate" class="form-label">End Date</label>
+        <input type="date" id="endDate" formControlName="endDate" class="form-control" />
+        <div *ngIf="eventForm.get('endDate')?.invalid && eventForm.get('endDate')?.touched" class="text-danger">
+            End Date is required.
+        </div>
+    </div>
+    <button type="submit" class="btn btn-danger" [disabled]="eventForm.invalid">Add Task</button>
+</form>
